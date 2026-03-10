@@ -1,6 +1,6 @@
 # Depth-2 Bilateral FPCE
 
-*The technique that reduced zone deduction from 248 puzzles to 1.*
+*The technique that reduced zone deduction from 248 puzzles to 49.*
 
 ---
 
@@ -94,18 +94,38 @@ Stall points:      315
 
 ### After Depth-2 Bilateral
 ```
-Stalls broken:     314 / 315 (99.7%)
-Hard-core:         1 stall (Andrew #441)
-Expected:          685 / 686 pure logic (99.85%)
+Stalls broken:     266 / 315 (84.4%)
+Remaining ZD:      49 puzzles
+Pure Logic:        637 / 686 (92.9%)
 ```
 
-### The Full Technique Stack
-| Technique | Share | Level |
-|-----------|-------|-------|
-| FPCE (Deep) | 21.5% | L1+L2 propagation |
-| FPC Placement | 15.3% | Gold-filtered chains |
-| Depth-2 Bilateral | New | Branch + FPCE |
-| All others | ~63% | Standard Sudoku |
+D2B solved the vast majority of stall points, but 49 puzzles still needed zone deduction.
+
+### The Full Technique Stack (55,862 total steps)
+| Technique | Firings | Share |
+|-----------|---------|-------|
+| fpcElimination | 9,851 | 17.6% |
+| finnedPointingChain | 8,365 | 15.0% |
+| depth2Bilateral | 1,336 | 2.4% |
+| All others (L1-L6) | 36,310 | 65.0% |
+
+---
+
+## The Next Step: Full Pipeline Forcing
+
+D2B brought zone deduction from 248 puzzles down to 49 — a massive improvement. But 49 remained.
+
+**Full Pipeline Forcing (FPF)** closes the gap entirely. Where D2B branches on a pivot cell and runs FPCE on each branch, FPF branches on a cell and runs the **entire solver pipeline** — L1 through D2B — on each branch. If all but one candidate causes the full pipeline to stall or contradict, the survivor is placed.
+
+```
+After D2B:   637 / 686 pure logic (49 ZD)
+After FPF:   686 / 686 pure logic (0 ZD)
+FPF firings: 50 (0.1% of all steps)
+```
+
+50 firings. That's all it took to eliminate zone deduction completely.
+
+> Read the full technique: [Full_Pipeline_Forcing_Technique.md](Full_Pipeline_Forcing_Technique.md)
 
 ---
 

@@ -222,7 +222,9 @@ L1 (naked singles, hidden singles)
         → ★ FORCING CHAIN ★  ← you are here
           → Forcing Net (wider branching)
             → L5-L6 (extended logic)
-              → Zone Deduction (last resort)
+              → Depth-2 Bilateral (branch + FPCE)
+                → Full Pipeline Forcing (entire pipeline)
+                  → Zone Deduction (no longer needed)
 ```
 
 ---

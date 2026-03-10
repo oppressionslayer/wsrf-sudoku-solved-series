@@ -238,6 +238,19 @@ Forcing Chains (bivalue/trivalue) and Forcing Nets (trivalue/quadvalue) overlap 
 
 ---
 
+## Cascading for Speed
+
+The cascade — the chain of forced naked singles and hidden singles that follows each hypothetical placement — is what makes Forcing Nets practical despite testing 3-4 branches per cell. Because the cascade only uses the two simplest techniques, each branch resolves in microseconds:
+
+- **Naked single:** One bitmask comparison per cell.
+- **Hidden single:** One pass through 9 cells per unit.
+
+Even with 3-4 branches and cascades of 10-40 forced placements each, the total work per cell is trivial at bitmask speed. The solver can exhaustively test every trivalue and quadvalue cell on the board faster than a traditional solver can detect a single complex pattern like ALS-XY-Wing or Death Blossom.
+
+**The recommendation:** any solver looking for both power and speed should consider cascade-based hypothesis testing. Rather than implementing dozens of specialized techniques, a single cascade engine covers the same ground — faster, more generally, and with far less code. The cascade naturally finds what those techniques were designed to find, without recognizing any specific pattern.
+
+---
+
 ## Where It Fits in the Pipeline
 
 ```

@@ -199,6 +199,19 @@ Forcing Chains fire so rarely because **FPC Placement and FPC Elimination handle
 
 ---
 
+## Cascading for Speed
+
+The cascade — the chain of forced naked singles and hidden singles that follows each hypothetical placement — is the engine that makes this technique practical. Because the cascade only uses the two simplest Sudoku techniques, it runs extremely fast:
+
+- **Naked single:** One bitmask comparison per cell.
+- **Hidden single:** One pass through 9 cells per unit.
+
+A typical cascade runs 3-20 forced placements. With bitmask operations, this takes microseconds. The solver can test every candidate in every bivalue cell on the board faster than a traditional solver can detect a single Swordfish or ALS pattern.
+
+**The recommendation:** any solver implementation looking for speed gains should consider using cascading as a core strategy. Rather than cycling through dozens of specialized pattern-matching techniques (X-Wings, Coloring, W-Wings, ALS), a single cascade-based hypothesis test can cover the same ground — faster and more generally. The cascade naturally discovers the same eliminations those techniques find, without needing to recognize any specific pattern. It scales well and simplifies the solver pipeline significantly.
+
+---
+
 ## Where It Fits in the Pipeline
 
 ```

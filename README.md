@@ -8,7 +8,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 ### FPC Placement (Finned Pointing Chain)
 
-**What it does:** Places digits with 100% certainty by chaining "Almost Pointing Pair" patterns.  Batch_Results_686.md has the ful 100% and solve statistics of each technique for all the unsolvables.
+**What it does:** Places digits with 100% certainty by chaining "Almost Pointing Pair" patterns.  Batch_Results_686.md has the full 100% and solve statistics of each technique for all the unsolvables.
 
 **The idea:** If a digit can only go in two spots in a row/column/box, and placing it at one of those spots causes a contradiction... it must go at the other spot.
 

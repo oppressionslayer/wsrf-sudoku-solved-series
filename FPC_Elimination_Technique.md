@@ -43,23 +43,11 @@ That's it. If assuming D goes at cell X breaks the board, then D can't go at X. 
 
 ## Walkthrough: Step-by-Step Example
 
-### The Board (after L1 + L2 stall)
+### The Puzzle
 
 ```
-     C1  C2  C3   C4  C5  C6   C7  C8  C9
-   ┌─────────────┬─────────────┬─────────────┐
-R1 │ .   6   .   │ .   .   1   │ 9   8   7   │
-R2 │ 1   7   .   │ 2   .   6   │ 5   3   .   │
-R3 │ .   8   .   │ 7   .   9   │ .   4   .   │
-   ├─────────────┼─────────────┼─────────────┤
-R4 │ 8   .   7   │ 5   .   .   │ 4   1   .   │
-R5 │ .   1   5   │ .   4   .   │ .   7   .   │
-R6 │ 4   .   6   │ 1   7   2   │ .   5   .   │
-   ├─────────────┼─────────────┼─────────────┤
-R7 │ .   2   .   │ 8   .   .   │ .   9   .   │
-R8 │ .   .   8   │ 3   1   7   │ .   2   .   │
-R9 │ 7   .   1   │ 6   .   .   │ .   .   .   │
-   └─────────────┴─────────────┴─────────────┘
+Import this puzzle string:
+005000003076328000090705060900000010501000407040000008050001002000253040600000000
 ```
 
 After running naked singles, hidden singles, naked pairs, pointing pairs, and claiming — the solver stalls. Traditional approach: start scanning for X-Wings, Swordfish, etc.
@@ -145,29 +133,34 @@ One FPCE elimination → one immediate placement → board simplifies → more n
 
 ## The Propagation Cascade Visualized
 
-This is what makes FPCE powerful. Here's the cascade from the example above, shown on the board:
+This is what makes FPCE powerful. The general pattern:
 
 ```
-     C1  C2  C3   C4  C5  C6   C7  C8  C9
    ┌─────────────┬─────────────┬─────────────┐
-R1 │  .   6   .  │  .   .   1  │  9   8   7  │
-R2 │  1   7   .  │  2   .   6  │  5   3   .  │
-R3 │  .   8   .  │  7   .   9  │  .   4   .  │
+   │  .   .   .  │  .   .   .  │  .   .   .  │
+   │  .   .   .  │  .   .   .  │  .   .   .  │
+   │  .   .   .  │  .   .   .  │  .   .   .  │
    ├─────────────┼─────────────┼─────────────┤
-R4 │  8  [9]  7  │  5   .   .  │  4   1   .  │  ← TEST: place 9 here
-R5 │ [2]  1   5  │  .   4   .  │  .   7   .  │  ← cascade
-R6 │  4  [3]  6  │  1   7   2  │  .   5   .  │  ← cascade
+   │  .  [D]  .  │  .   .   .  │  .  [D]  .  │  ← cascade placements
+   │  .   .   .  │  .  [D]  .  │  .   .   .  │  ← cascade
+   │  .   .   .  │  .   .   .  │  .   .   .  │
    ├─────────────┼─────────────┼─────────────┤
-R7 │ [5]  2  [4] │  8  [3]  .  │  .   9   .  │  ← cascade
-R8 │ [6] [5]  8  │  3   1   7  │  .   2   .  │  ← cascade
-R9 │  7  [3]  1  │  6  {!}  .  │  .   .   .  │  ← CONTRADICTION
+   │  .   .  [D] │  .   .   .  │  .   .   .  │  ← cascade
+   │  .   .   .  │  .   .   .  │ {!}  .   .  │  ← CONTRADICTION
+   │  .   .   .  │  .   .   .  │  .   .   .  │
    └─────────────┴─────────────┴─────────────┘
 
   [D] = Cascade placement (forced by naked/hidden single)
-  {!} = Contradiction cell (impossible state)
+  {!} = Contradiction cell (zero candidates or missing digit)
 ```
 
-**9 placements cascade from one assumption before the board breaks.** Every single one is a forced, logical deduction. The contradiction at R9C5 proves the original assumption was wrong.
+Multiple placements cascade from one assumption before the board breaks. Every single one is a forced, logical deduction. The contradiction proves the original assumption was wrong.
+
+Import the puzzle below and run Top-N to see the exact cascade highlighted on the board:
+
+```
+005000003076328000090705060900000010501000407040000008050001002000253040600000000
+```
 
 ---
 
@@ -285,3 +278,24 @@ FPCE was born from the FPC Placement Gold Filter discovery:
 4. The propagation engine built for FPC Placement made FPCE computationally feasible
 
 The journey: **broken technique (50% accuracy) → diagnostic analysis → Gold Filter (100%) → generalized elimination → #1 technique in the solver.**
+
+---
+
+## Try It Yourself
+
+Import these puzzles into the WSRF Zone Companion and watch FPCE fire:
+
+```
+005000003076328000090705060900000010501000407040000008050001002000253040600000000
+100006020000000058053002700000920005040060090200031000008600540700000000010280009
+```
+
+### Screenshots
+
+![FPCE Example 1](FPCE/005000003076328000090705060900000010501000407040000008050001002000253040600000000.png)
+
+![FPCE Example 2](FPCE/100006020000000058053002700000920005040060090200031000008600540700000000010280009.png)
+
+---
+
+*A Simple Wili technique can replace the need for many of these advanced techniques.*

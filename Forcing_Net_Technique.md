@@ -289,4 +289,20 @@ That's Forcing Net. Forcing Chain's bigger sibling. Same logic, wider reach, har
 
 ---
 
+---
+
+## Try It Yourself
+
+Import this puzzle into the WSRF Zone Companion and watch Forcing Net fire:
+
+```
+400200000003050001070009600060010007008003000200400900000600802000008050000090300
+```
+
+### Screenshot
+
+![Forcing Net Example](FN/400200000003050001070009600060010007008003000200400900000600802000008050000090300.png)
+
+---
+
 *A Simple Wili technique can replace the need for many of these advanced techniques.*

@@ -237,4 +237,20 @@ That's Forcing Chain. Simple hypothesis testing, applied to Sudoku. No memorizat
 
 ---
 
+---
+
+## Try It Yourself
+
+Import this puzzle into the WSRF Zone Companion and watch Forcing Chain fire:
+
+```
+050003040800060007000100200004009000600000050000080300900020063000730091030004000
+```
+
+### Screenshot
+
+![Forcing Chain Example](FC/050003040800060007000100200004009000600000050000080300900020063000730091030004000.png)
+
+---
+
 *A Simple Wili technique can replace the need for many of these advanced techniques.*

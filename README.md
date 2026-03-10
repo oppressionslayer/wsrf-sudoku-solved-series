@@ -24,9 +24,9 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 | Coverage | 653 / 685 expert puzzles (95.3%) |
 | Share of solving steps | 15.0% (8,365 firings) |
 
-> Read the full technique: [../FPC_Placement_Technique.md](../FPC_Placement_Technique.md)
+> Read the full technique: [FPC_Placement_Technique.md](FPC_Placement_Technique.md)
 
-![FPC Placement Example](../FPC/000900008006005000009074300310050020600040003090320067005410700000500200400003000.png)
+![FPC Placement Example](FPC/000900008006005000009074300310050020600040003090320067005410700000500200400003000.png)
 
 ---
 
@@ -48,9 +48,9 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 | Combined with FPC Placement | **32.6%** of all steps |
 | Techniques made obsolete | **13+** (see below) |
 
-> Read the full technique: [../FPC_Elimination_Technique.md](../FPC_Elimination_Technique.md)
+> Read the full technique: [FPC_Elimination_Technique.md](FPC_Elimination_Technique.md)
 
-![FPCE Example](../FPCE/005000003076328000090705060900000010501000407040000008050001002000253040600000000.png)
+![FPCE Example](FPCE/005000003076328000090705060900000010501000407040000008050001002000253040600000000.png)
 
 ---
 
@@ -72,7 +72,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 | Puzzles that needed FPF | 49 of 686 |
 | Zone Deduction after FPF | **0** |
 
-> Read the full technique: [../Full_Pipeline_Forcing_Technique.md](../Full_Pipeline_Forcing_Technique.md)
+> Read the full technique: [Full_Pipeline_Forcing_Technique.md](Full_Pipeline_Forcing_Technique.md)
 
 ---
 
@@ -161,20 +161,20 @@ The journey: **broken technique (50%) → Gold Filter (100%) → FPCE (#1 techni
 ## Screenshots
 
 ### FPC Placement
-![FPC Placement](../FPC/046015090300609001000020000920001008007000900500000037000060000800403009000100580_andrewpuzzle.png)
+![FPC Placement](FPC/046015090300609001000020000920001008007000900500000037000060000800403009000100580_andrewpuzzle.png)
 
 ### FPC Elimination
-![FPCE](../FPCE/100006020000000058053002700000920005040060090200031000008600540700000000010280009.png)
+![FPCE](FPCE/100006020000000058053002700000920005040060090200031000008600540700000000010280009.png)
 
 ### Depth-2 Bilateral
-![D2B Example 1](../DB2/020006700400080000009300000000900570010007002000000610300040000008600000060005020.png)
-![D2B Example 2](../DB2/020400080000000006800007100200500090095000000040030000000001007002800040000060308.png)
+![D2B Example 1](DB2/020006700400080000009300000000900570010007002000000610300040000008600000060005020.png)
+![D2B Example 2](DB2/020400080000000006800007100200500090095000000040030000000001007002800040000060308.png)
 
 ### Forcing Chain
-![Forcing Chain](../FC/050003040800060007000100200004009000600000050000080300900020063000730091030004000.png)
+![Forcing Chain](FC/050003040800060007000100200004009000600000050000080300900020063000730091030004000.png)
 
 ### Forcing Net
-![Forcing Net](../FN/400200000003050001070009600060010007008003000200400900000600802000008050000090300.png)
+![Forcing Net](FN/400200000003050001070009600060010007008003000200400900000600802000008050000090300.png)
 
 ---
 

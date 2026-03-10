@@ -1,6 +1,6 @@
 # Simple Wili's Sudoku Solved Series!
 
-Two techniques that changed how we solve expert Sudoku. No memorizing complex fish patterns. No coloring chains. No ALS gymnastics. Just pure, simple logic that clears the board.
+Three techniques that changed how we solve expert Sudoku. No memorizing complex fish patterns. No coloring chains. No ALS gymnastics. Just pure, simple logic that clears the board.
 
 ---
 
@@ -22,9 +22,11 @@ Two techniques that changed how we solve expert Sudoku. No memorizing complex fi
 |------|-------|
 | Accuracy | **100.00%** (verified on 120,776 firings) |
 | Coverage | 653 / 685 expert puzzles (95.3%) |
-| Share of solving steps | 14.4% |
+| Share of solving steps | 15.0% (8,365 firings) |
 
-> Read the full technique: [FPC_Placement_Technique.md](FPC_Placement_Technique.md)
+> Read the full technique: [../FPC_Placement_Technique.md](../FPC_Placement_Technique.md)
+
+![FPC Placement Example](../FPC/000900008006005000009074300310050020600040003090320067005410700000500200400003000.png)
 
 ---
 
@@ -42,11 +44,35 @@ Two techniques that changed how we solve expert Sudoku. No memorizing complex fi
 
 | Stat | Value |
 |------|-------|
-| Share of solving steps | **21.7%** (#1 technique in the solver) |
-| Combined with FPC Placement | **36.1%** of all steps |
+| Share of solving steps | **17.6%** (9,851 firings — #1 technique in the solver) |
+| Combined with FPC Placement | **32.6%** of all steps |
 | Techniques made obsolete | **13+** (see below) |
 
-> Read the full technique: [FPC_Elimination_Technique.md](FPC_Elimination_Technique.md)
+> Read the full technique: [../FPC_Elimination_Technique.md](../FPC_Elimination_Technique.md)
+
+![FPCE Example](../FPCE/005000003076328000090705060900000010501000407040000008050001002000253040600000000.png)
+
+---
+
+### Full Pipeline Forcing (FPF)
+
+**What it does:** Places digits by running the **entire solver pipeline** on each candidate. If all but one candidate causes the pipeline to contradict, the survivor is placed.
+
+**The idea:** Branch on each candidate in a cell, run every technique from L1 through Depth-2 Bilateral. Proof by contradiction using the full power of the solver.
+
+**How it works:**
+1. Pick a cell with 2-4 candidates
+2. For each candidate, place it and run the complete pipeline forward
+3. If a branch contradicts at any stage — that candidate is impossible
+4. If only one candidate survives — place it
+
+| Stat | Value |
+|------|-------|
+| Firings | 50 (0.1% of all steps) |
+| Puzzles that needed FPF | 49 of 686 |
+| Zone Deduction after FPF | **0** |
+
+> Read the full technique: [../Full_Pipeline_Forcing_Technique.md](../Full_Pipeline_Forcing_Technique.md)
 
 ---
 
@@ -71,21 +97,46 @@ These techniques are effectively gone from the solving pipeline:
 | Naked Quad | Gone |
 | Naked Triple | -82% |
 | Forcing Chain | -71% |
+| **Zone Deduction** | **Gone** (eliminated by FPF) |
 
-One principle — proof by contradiction using only naked and hidden singles — replaces a dozen specialized pattern-matching techniques.
+One family of techniques — contradiction testing at increasing depth — replaces a dozen specialized pattern-matching techniques AND the heuristic fallback.
 
 ---
 
 ## Results on 686 Expert Puzzles
 
 ```
-Fully Solved:     686 / 686 (100.0%)
-Pure Logic:       430 / 686
-FPC Placement:    8,052 firings (14.4%)
-FPC Elimination:  12,160 firings (21.7%)
-Combined:         20,212 firings (36.1% of all steps)
-Oracle breaks:    0
+Fully Solved:          686 / 686 (100.0%)
+Pure Logic:            686 / 686 (100.0%)
+Zone Deduction:        0
+Total steps:           55,862
+FPC Placement:         8,365 firings (15.0%)
+FPC Elimination:       9,851 firings (17.6%)
+Depth-2 Bilateral:     1,336 firings (2.4%)
+Full Pipeline Forcing: 50 firings (0.1%)
+Oracle breaks:         0
 ```
+
+### The Full Technique Stack (55,862 steps)
+
+| Technique | Firings | Share |
+|-----------|---------|-------|
+| hiddenSingle | 10,186 | 18.2% |
+| nakedSingle | 9,919 | 17.8% |
+| fpcElimination | 9,851 | 17.6% |
+| finnedPointingChain | 8,365 | 15.0% |
+| lastRemaining | 7,720 | 13.8% |
+| fullHouse | 3,143 | 5.6% |
+| pointingPair | 1,708 | 3.1% |
+| depth2Bilateral | 1,336 | 2.4% |
+| forcingChain | 1,274 | 2.3% |
+| nakedPair | 778 | 1.4% |
+| claiming | 490 | 0.9% |
+| forcingNet | 437 | 0.8% |
+| juniorExocet | 222 | 0.4% |
+| bowmanBingo | 137 | 0.2% |
+| nakedTriple | 52 | 0.1% |
+| fullPipelineForcing | 50 | 0.1% |
 
 ---
 
@@ -99,26 +150,31 @@ The **Gold Filter** was born: three observable checks (shared pair + target cons
 
 Then the generalization: if contradiction testing works for blockers, it works for **any cell**. FPC Elimination was born — and immediately became the #1 technique in the solver, making 13+ advanced techniques obsolete.
 
-The journey: **broken technique (50%) → diagnostic analysis → Gold Filter (100%) → generalized elimination → #1 technique.**
+Then deeper: **Depth-2 Bilateral** — branch on a pivot cell, run FPCE on each branch, find common eliminations. Reduced zone deduction from 248 to 49 puzzles.
+
+Then the final step: **Full Pipeline Forcing** — branch on a cell, run the entire pipeline. 50 firings. Zone deduction drops to zero. **686/686 pure logic.**
+
+The journey: **broken technique (50%) → Gold Filter (100%) → FPCE (#1 technique) → D2B (248→49) → FPF (49→0).**
 
 ---
 
 ## Screenshots
 
-### FPC Placement — Chain Visualization
+### FPC Placement
+![FPC Placement](../FPC/046015090300609001000020000920001008007000900500000037000060000800403009000100580_andrewpuzzle.png)
 
-| | |
-|---|---|
-| ![FPC Chain 1](FPC/001000760600090408000602000200800000007060500000009003000100000006940005015070900.png) | ![FPC Chain 2](FPC/001000760600090408000602000200800000007060500000009003000100000006940005015070900%20(1).png) |
-| ![FPC Chain 3](FPC/001000760600090408000602000200800000007060500000009003000100000006940005015070900%20(2).png) | ![FPC Chain 4](FPC/001000760600090408000602000200800000007060500000009003000100000006940005015070900%20(3).png) |
-| ![FPC Example](FPC/030605040500010603006000000800001050000060000090700008000000400104080002050070090.png) | ![FPC Example](FPC/002781560000030080080900070060103050500000008070805096040009030020060000009308600.png) |
-| ![FPC Example](FPC/000900008006005000009074300310050020600040003090320067005410700000500200400003000.png) | ![FPC Andrew](FPC/046015090300609001000020000920001008007000900500000037000060000800403009000100580_andrewpuzzle.png) |
+### FPC Elimination
+![FPCE](../FPCE/100006020000000058053002700000920005040060090200031000008600540700000000010280009.png)
 
-### FPCE Elimination — Propagation Cascade & Contradiction
+### Depth-2 Bilateral
+![D2B Example 1](../DB2/020006700400080000009300000000900570010007002000000610300040000008600000060005020.png)
+![D2B Example 2](../DB2/020400080000000006800007100200500090095000000040030000000001007002800040000060308.png)
 
-| | |
-|---|---|
-| ![FPCE Example 1](FPCE/005000003076328000090705060900000010501000407040000008050001002000253040600000000.png) | ![FPCE Example 2](FPCE/100006020000000058053002700000920005040060090200031000008600540700000000010280009.png) |
+### Forcing Chain
+![Forcing Chain](../FC/050003040800060007000100200004009000600000050000080300900020063000730091030004000.png)
+
+### Forcing Net
+![Forcing Net](../FN/400200000003050001070009600060010007008003000200400900000600802000008050000090300.png)
 
 ---
 
@@ -132,4 +188,4 @@ Built with the **WSRF Zone Companion** solver — a browser-based Sudoku analysi
 
 ---
 
-*Why use all those hard techniques when you can clear the board with Simple Wili?*
+*A Simple Wili technique can replace the need for many of these advanced techniques.*

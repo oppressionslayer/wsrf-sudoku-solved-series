@@ -8,7 +8,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 ### FPC Placement (Finned Pointing Chain)
 
-**What it does:** Places digits with 100% certainty by chaining "Almost Pointing Pair" patterns.  Batch_Results_686.md has the full 100% and solve statistics of each technique for all the unsolvables.
+**What it does:** Places digits with 100% certainty by chaining "Almost Pointing Pair" patterns.
 
 **The idea:** If a digit can only go in two spots in a row/column/box, and placing it at one of those spots causes a contradiction... it must go at the other spot.
 
@@ -169,6 +169,9 @@ The journey: **broken technique (50%) → Gold Filter (100%) → FPCE (#1 techni
 ### Depth-2 Bilateral
 ![D2B Example 1](DB2/020006700400080000009300000000900570010007002000000610300040000008600000060005020.png)
 ![D2B Example 2](DB2/020400080000000006800007100200500090095000000040030000000001007002800040000060308.png)
+
+### Full Pipeline Forcing
+![FPF — R1C6 = 6](FPF/020450089400089230089030004200340098090018420048090300030800902802903040970020803.png)
 
 ### Forcing Chain
 ![Forcing Chain](FC/050003040800060007000100200004009000600000050000080300900020063000730091030004000.png)

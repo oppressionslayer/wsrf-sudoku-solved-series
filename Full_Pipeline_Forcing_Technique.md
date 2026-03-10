@@ -230,4 +230,37 @@ That's Full Pipeline Forcing. The final technique. 50 firings to complete the jo
 
 ---
 
+## Try It Yourself
+
+Import this puzzle into the WSRF Zone Companion — FPF fires in Round 1 and cracks the whole thing open:
+
+```
+020450089400089230089030004200340098090018420048090300030800902802903040970020803
+```
+
+### Full Solve Log
+
+```
+Round 1:  fullPipelineForcing  R1C6 = 6  (1→X, 7→X — only 6 survives)
+Round 2:  fpcElimination ×3   R3C8, R4C7, R6C1
+Round 3:  forcingNet           R2C3
+Round 4-7: forcingChain ×4    R2C2, R3C8, R4C2, R3C8 → nakedSingle R3C8 = 5
+Round 8:  pointingPair         R8C2
+Round 9:  hiddenSingle         R2C2 = 5
+Round 10: lastRemaining + hiddenSingle
+Round 11: nakedPair            3 eliminations
+Round 12: 8× finnedPointingChain + 5× nakedSingle — board explodes open
+Round 13-14: fullHouse, lastRemaining, nakedSingle, hiddenSingle — cleanup
+
+✓ FULLY SOLVED — 39/39 placed in 14 rounds
+```
+
+One FPF placement in Round 1 → the entire puzzle unravels.
+
+### Screenshot
+
+![FPF Example — R1C6 = 6](FPF/020450089400089230089030004200340098090018420048090300030800902802903040970020803.png)
+
+---
+
 *A Simple Wili technique can replace the need for many of these advanced techniques.*

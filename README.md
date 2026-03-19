@@ -4,6 +4,10 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 ---
 
+# pip install lardoku 
+
+# https://github.com/oppressionslayer/larsdoku-solver is the code! These are the techniques! Web Javascript version coming soon! 
+
 ## The Techniques
 
 ### FPC Placement (Finned Pointing Chain)

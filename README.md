@@ -6,7 +6,13 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 # pip install larsdoku 
 
-# https://github.com/oppressionslayer/larsdoku-solver is the code! These are the techniques! Web Javascript version coming soon! 
+# https://github.com/oppressionslayer/larsdoku-solver 
+
+# is the code! These are the techniques! Web Javascript version coming soon! 
+
+# A work in progress buggy but a web versio is here, click expert mode tab to open up the Top-N Solver:
+
+https://larsdoku.netlify.app/l
 
 ## The Techniques
 

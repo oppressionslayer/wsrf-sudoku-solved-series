@@ -12,7 +12,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 # A work in progress buggy but a web versio is here, click expert mode tab to open up the Top-N Solver:
 
-https://larsdoku.netlify.app/l
+https://larsdoku.netlify.app/
 
 ## The Techniques
 

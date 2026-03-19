@@ -4,7 +4,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 ---
 
-# pip install lardoku 
+# pip install larsdoku 
 
 # https://github.com/oppressionslayer/larsdoku-solver is the code! These are the techniques! Web Javascript version coming soon! 
 

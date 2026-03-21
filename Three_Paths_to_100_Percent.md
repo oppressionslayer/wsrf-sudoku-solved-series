@@ -66,7 +66,7 @@ If both agree on a placement elsewhere: that placement is proven
 **Why this works for other solvers:** Ypu already have a solver with Forcing Nets, ALS, fish, etc. you just need to:
 1. Clone the board state
 2. Place one candidate of a bivalue cell
-3. Run his existing solver on the clone
+3. Run your existing solver on the clone
 4. Check if it contradicts or succeeds
 5. Repeat for the other candidate
 

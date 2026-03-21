@@ -1,6 +1,6 @@
 # Simple Wili's Sudoku Solved Series!
 
-**Andrew from (sudokuwiki) — you can get 100% on the forum hardest puzzles (all 48,765 of them) using one of three approaches larsudoku utilizes. No backtracking needed.** Pick whichever fits your architecture best: [Three Paths to 100%](Three_Paths_to_100_Percent.md) I'm happy to implement a unique approach you choose as well! 
+**Andrew from (sudokuwiki) — you can get 100% on the forum hardest puzzles (all 48,765 of them) using one of three approaches larsudoku utilizes. No backtracking needed.** Pick whichever fits your architecture best: [Three Paths to 100%](Three_Paths_to_100_Percent.md) I'm happy to implement a unique approach you choose as well! Also your Fprcing Nets done recusively! They get 100% !!! Let's go!!! 
 
 ---
 

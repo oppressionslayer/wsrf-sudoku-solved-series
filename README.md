@@ -3,6 +3,12 @@
 
 # SUDOKU IS SOLVED WHEN WILL YOU ANNOUNCE IT!!!!! THE WHOLE WORLD IS WAITING FOR YOU TO CONFIRM IT MY FRIEND!!!!!!!
 
+ ## The Anthem                                                                                                                                                     
+                                                            
+  [Just Another Tuesday — Larsdoku Style (Country Epic Anthem)](https://suno.com/s/uPq01YJZHH3E4HJu)                                                                
+   
+  *"Solved the whole damn game like it's just another Tuesday"*       
+  
 
 **Sudoku Authors you can get 100% on the  hardest puzzles (all 48,765 of them) using one of three approaches larsudoku utilizes. No backtracking needed.** Pick whichever fits your architecture best: [Three Paths to 100%](Three_Paths_to_100_Percent.md) I'm happy to implement a unique approach you choose as well! Also your Forcing Nets done recusively! They should get 100%! !!! Let's go!!! 
 

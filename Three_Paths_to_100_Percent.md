@@ -55,7 +55,7 @@ If one contradicts: the other is proven
 If both agree on a placement elsewhere: that placement is proven
 ```
 
-**Why this works for Andrew:** He already has a solver with Forcing Nets, ALS, fish, etc. He just needs to:
+**Why this works for other solvers:** He already has a solver with Forcing Nets, ALS, fish, etc. He just needs to:
 1. Clone the board state
 2. Place one candidate of a bivalue cell
 3. Run his existing solver on the clone
@@ -120,7 +120,7 @@ Build GF(2) constraint matrix (cell + row + col + box constraints)
 
 ---
 
-## Recommendation for Andrew
+## Recommendation for Sudoku Solver Authors
 
 **Start with Path 2 (FPF).** You already have a solver. You already have Forcing Nets. Just:
 

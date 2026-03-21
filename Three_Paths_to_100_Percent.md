@@ -6,7 +6,7 @@
 
 ## The Discovery
 
-There isn't just ONE way to solve the forum hardest set. There are **three independent approaches**, each achieving 100% with zero backtracking. A solver implementer can choose whichever fits their architecture best.
+There isn't just ONE way to solve the forum hardest set. There are **three independent approaches**, each achieving 100% with zero backtracking. A solver implementer can choose whichever fits their architecture best. Also Recursive Forcing Nets also accomplishes the goal!!! 
 
 ---
 

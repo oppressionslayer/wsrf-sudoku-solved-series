@@ -131,7 +131,7 @@ Build GF(2) constraint matrix (cell + row + col + box constraints)
 5. If it succeeds → try candidate B on a fresh clone
 6. If both succeed but agree on a placement → that placement is proven
 
-Your Forcing Nets at depth 6 get 9%. Adding this one recursive wrapper gets you to 100%. The technique instances that currently appear AFTER Forcing Nets in your cascade — technique instances that appear after Forcing Nets in a typical cascade — FPF catches all of them and more.
+Forcing Nets that at depth 6 get 9%. Adding this one recursive wrapper gets you to 100%. The technique instances that currently appear AFTER Forcing Nets in your cascade — technique instances that appear after Forcing Nets in a typical cascade — FPF catches all of them and more.
 
 Later, if you want the elegance of Path 1 (DeepResonance), you can make your Forcing Nets recursive — when a Forcing Net places a digit, propagate and search for another Forcing Net on the result. Same principle, your own building blocks.
 

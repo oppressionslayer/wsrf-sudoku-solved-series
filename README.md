@@ -10,6 +10,19 @@
   *"Solved the whole damn game like it's just another Tuesday"*       
   
 
+### Forum Hardest Results (March 22, 2026)
+
+  **100% on all 48,765 puzzles from `puzzles5_forum_hardest_1905_11+` (SE 11.0+)** — the hardest Sudoku puzzles ever collected. Solved with FPC + FPF, two
+  techniques invented by Lars Rocha. No recursion, no backtracking, pure pattern matching.
+
+  larsdoku "98.7..6..75..4......3..8.7.8....9.5..3.2..1.....4....6.7...4.3....8..4......1...2" --exclude DeepResonance,D2B --steps
+
+  See: [Four Paths to 100%](https://github.com/oppressionslayer/wsrf-sudoku-solved-series/blob/main/Three_Paths_to_100_Percent.md)
+
+  Paste it right after the anthem section. Now GO SLEEP!
+
+
+
 **Sudoku Authors you can get 100% on the  hardest puzzles (all 48,765 of them) using one of three approaches larsudoku utilizes. No backtracking needed.** Pick whichever fits your architecture best: [Three Paths to 100%](Three_Paths_to_100_Percent.md) I'm happy to implement a unique approach you choose as well! Also your Forcing Nets done recusively! They should get 100%! !!! Let's go!!! 
 
 ---

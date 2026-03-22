@@ -26,7 +26,7 @@
 
 
 
-**Sudoku Authors you can get 100% on the  hardest puzzles (all 48,765 of them) using one of three approaches larsudoku utilizes. No backtracking needed.** Pick whichever fits your architecture best: [Three Paths to 100%](Three_Paths_to_100_Percent.md) I'm happy to implement a unique approach you choose as well! Also your Forcing Nets done recusively! They should get 100%! !!! Let's go!!! 
+**Sudoku Authors you can get 100% on the  hardest puzzles (all 48,765 of them) using one of three approaches larsudoku utilizes. No backtracking needed.** Pick whichever fits your architecture best: [Three Paths to 100%](Three_Paths_to_100_Percent.md) I'm happy to implement a unique approach you choose as well! Also with FPC and FPF! Check the path txt files They should get 100%! !!! Let's go!!! 
 
 ---
 

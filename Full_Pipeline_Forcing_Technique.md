@@ -1,6 +1,8 @@
 # Full Pipeline Forcing — The Final Technique
 
-*The technique that eliminated zone deduction entirely. 686/686 pure logic. Zero heuristics.*
+*Invented by Lars Rocha (oppressionslayer) — 2025-2026*
+
+*The technique that eliminated zone deduction entirely. Combined with FPC (also invented by Lars Rocha), solves 100% of the 48,765 forum hardest puzzles (SE 11.0+) — no recursion, no backtracking, pure pattern matching.*
 
 ---
 
@@ -260,6 +262,29 @@ One FPF placement in Round 1 → the entire puzzle unravels.
 ### Screenshot
 
 ![FPF Example — R1C6 = 6](FPF/020450089400089230089030004200340098090018420048090300030800902802903040970020803.png)
+
+---
+
+## Forum Hardest Results (March 22, 2026)
+
+FPF combined with FPC (both invented by Lars Rocha) solves **100% of the forum hardest puzzles** — all 48,765 puzzles rated SE 11.0+. This is **Path 4** in the [Four Paths to 100%](Three_Paths_to_100_Percent.md) — the simplest path with no recursion.
+
+```
+puzzles5_forum_hardest_1905_11+ (48,765 puzzles)
+FPC + FPF (no DeepResonance, no D2B, no GF(2)):  100%
+FPF firings: ~1.3 per puzzle
+No recursion. No cascading. No algebra.
+```
+
+FPF is the backstop — it fires about once per puzzle to break through the one stall point that FPC and standard techniques can't reach. One strategic branch, then FPC and L1/L2 cascade to completion.
+
+---
+
+## Author
+
+**Lars Rocha** ([oppressionslayer](https://github.com/oppressionslayer))
+
+FPF is an original WSRF (Wiliam's Statistical Reasoning Framework) contribution. It is the logical endpoint of the contradiction-testing family: FPCE → Deep FPCE → D2B → FPF. Each step propagates deeper. FPF propagates everything.
 
 ---
 

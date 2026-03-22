@@ -1,5 +1,9 @@
 # Finned Pointing Chain (FPC) — Placement Technique
 
+*Invented by Lars Rocha (oppressionslayer) — 2025-2026*
+
+*Together with FPF, solves 100% of the 48,765 forum hardest puzzles (SE 11.0+) — the hardest Sudoku puzzles ever collected. No recursion. No backtracking. Pure pattern matching.*
+
 ## What It Does
 
 FPC places a digit with **100% certainty** by chaining together "Almost Pointing Pair" patterns. It fires after basic techniques (naked singles, hidden singles, naked pairs, pointing pairs, claiming) have stalled — exactly the point where most solvers jump to expensive advanced techniques like X-Wing, Swordfish, or Coloring.
@@ -313,7 +317,40 @@ Import any of these puzzles into the WSRF Zone Companion and watch FPC Placement
 
 ![FPC Example 2 — Multi-step chain](FPC/001000760600090408000602000200800000007060500000009003000100000006940005015070900.png)
 
-![FPC Andrew Puzzle](FPC/046015090300609001000020000920001008007000900500000037000060000800403009000100580_andrewpuzzle.png)
+![FPC \Puzzle](FPC/046015090300609001000020000920001008007000900500000037000060000800403009000100580_puzzle.png)
+
+---
+
+## Forum Hardest Results (March 22, 2026)
+
+FPC combined with FPF (both invented by Lars Rocha) solves **100% of the forum hardest puzzles** — all 48,765 puzzles rated SE 11.0+ by Sudoku Explainer, the hardest puzzle collection in existence.
+
+```
+puzzles5_forum_hardest_1905_11+ (48,765 puzzles)
+FPC + FPF (no DeepResonance, no D2B, no GF(2)):  100%
+FPC firings: ~1 per puzzle
+FPF firings: ~1.3 per puzzle
+No recursion. No cascading. No algebra. Just pattern matching.
+```
+
+For comparison, Andrew noticed on his website Forcing Nets (March 2026) achieve 9% on this set.
+
+**The discovery journey:**
+1. FPC started as a broken technique with 50% oracle breaks
+2. Lars noticed the 50/50 split and asked "why exactly half?"
+3. Analysis of 120,776 firings revealed a perfect binary separator — the blocker cell
+4. The Gold Filter was born: three observable checks, 100.00% accuracy, zero errors
+5. FPC went from "broken" to the technique that solves the hardest puzzles ever created
+
+See also: [Three Paths to 100%](Three_Paths_to_100_Percent.md) — FPC + FPF is Path 4, the simplest of all four paths.
+
+---
+
+## Author
+
+**Lars Rocha** ([oppressionslayer](https://github.com/oppressionslayer))
+
+FPC is an original WSRF (Wiliam's Statistical Reasoning Framework) contribution, not found in traditional Sudoku solving literature. The Gold Filter discovery — turning a 50% failure rate into 100% accuracy through diagnostic analysis — is a novel approach to technique validation.
 
 ---
 

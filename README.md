@@ -40,7 +40,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 # is the code! These are the techniques! Web Javascript version coming soon! 
 
-# A work in progress buggy but a web versio is here, click expert mode tab to open up the Top-N Solver:
+# A work in progress buggy but a web versio is here, click expert mode tab to open up the Top-N Solver (exocet has a bug, i have a way better version for JS in the wings! ) :
 
 https://larsdoku.netlify.app/
 

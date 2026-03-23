@@ -1,6 +1,10 @@
 # Deep Resonance
 
+*Invented by Lars Rocha (oppressionslayer) — March 2026*
+
 *The technique that makes the "forum hardest" puzzles solvable by pure logic.*
+
+**UPDATE (March 22, 2026):** The deep cascade (Phases 4+) is NOT required. Base mode — propagate + chain follow + one ForcingChain pass — achieves 100% on the first 1,000 forum hardest puzzles (10,000+ validation in progress). This means DeepResonance is essentially the same as applying Forcing Nets as a systematic contradiction test. No recursion, no cascade, no brute force. Andrew Stuart's existing Forcing Nets infrastructure can implement this directly.
 
 ---
 

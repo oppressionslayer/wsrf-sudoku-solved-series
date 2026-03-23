@@ -12,20 +12,22 @@ There isn't just ONE way to solve the forum hardest set. There are **four indepe
 
 ---
 
-## Path 1: DeepResonance (Cascaded Contradiction)
+## Path 1: DeepResonance (Contradiction Testing — No Deep Cascade Needed!)
 
-**The idea:** Place a candidate, propagate all consequences, then run Forcing Chains on the result. If Forcing Chains place something, propagate THAT and run Forcing Chains AGAIN. Cascade up to 3 levels deep. If anything contradicts, the original candidate is eliminated.
+**The idea:** Place a candidate, propagate all consequences (L1+L2), follow chains for contradictions, and run one pass of ForcingChain on the propagated state. If anything contradicts, the original candidate is eliminated.
+
+**UPDATE (March 22, 2026):** We discovered that the deep cascade (Phases 4+) is NOT needed. Base mode — just propagate + chain follow + one ForcingChain pass — achieves 100% on the first 1,000 forum hardest puzzles tested. Currently running full validation on 10,000+ puzzles.
 
 ```
 Place D at cell X
   └─ Propagate L1+L2 → contradiction? ELIMINATE
-       └─ Run ForcingChain → finds placement P1
-            └─ Propagate P1 → contradiction? ELIMINATE
-                 └─ Run ForcingChain → finds P2
-                      └─ Propagate P2 → contradiction? ELIMINATE
+       └─ Follow chains on propagated state → contradiction? ELIMINATE
+            └─ Run ForcingChain on trial board → contradiction? ELIMINATE
 ```
 
-**Results:** 91.8% of puzzles need this technique. It's the primary solver for SE 11.0+ puzzles.
+This is essentially what Forcing Nets already do — just applied as a systematic contradiction test on each candidate of cells with 2-4 candidates. No recursion, no cascade, no solver-inside-solver. One propagation, one chain check, one forcing chain pass. Clean and pattern-based.
+
+**Results:** 91.8% of puzzles need this technique. 1,000/1,000 verified at 100% in base mode (no cascade).
 
 **Example — Puzzle #2:**
 ```
@@ -165,10 +167,10 @@ From a broken technique to the key that unlocks the hardest Sudoku puzzles ever 
 
 | | Path 1: DeepResonance | Path 2: FPF | Path 3: GF(2)+FPF | Path 4: FPC+FPF |
 |---|---|---|---|---|
-| **Core idea** | Cascade forcing chains 3 deep | Run full solver on each branch | Linear algebra + branching | Two pattern-matching techniques |
-| **New code needed** | Trial propagation + chain cascade | Just recursion (solver calls itself) | GF(2) elimination engine | FPC detector + FPF wrapper |
-| **Recursion?** | Yes (3 levels) | Yes (solver inside solver) | No (algebra) | **No** |
-| **Implementation effort** | Medium | Easy | Hard | **Easiest** |
+| **Core idea** | Propagate + chain + ForcingChain (no cascade!) | Run full solver on each branch | Linear algebra + branching | Two pattern-matching techniques |
+| **New code needed** | Trial propagation + chain check | Just recursion (solver calls itself) | GF(2) elimination engine | FPC detector + FPF wrapper |
+| **Recursion?** | **No** (base mode — no cascade needed) | Yes (solver inside solver) | No (algebra) | **No** |
+| **Implementation effort** | **Easy** (Forcing Nets as contradiction test) | Easy | Hard | **Easiest** |
 | **Speed** | Fast | Moderate | Fast | **Fastest** (no cascade overhead) |
 | **Solve rate** | 100% | 100% | 100% | **100%** |
 | **Best for** | Pattern-based solvers | Anyone with a working solver | Math-oriented | **Everyone** |

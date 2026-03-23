@@ -142,9 +142,6 @@ DeepResonance appears in **44/50 puzzles** (88%), often firing multiple times pe
 | DeathBlossom | 1/50 (2%) |
 | ForcingChain | 1/50 (2%) |
 
-### Andrew Stuart's Forcing Nets Comparison
-
-Andrew Stuart's updated Forcing Nets (March 2026) achieve **9%** on this same set. Deep Resonance's cascade architecture — running forcing chains inside propagated trial states at depth 3 — reaches contradictions that flat Forcing Nets cannot.
 
 ---
 

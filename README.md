@@ -10,7 +10,7 @@
                                                             
   [Just Another Tuesday — Larsdoku Style (Country Epic Anthem)](https://suno.com/s/uPq01YJZHH3E4HJu)      
 
-**Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said nah! ](https://suno.com/s/JZVHZEsLrfEEM3VI)  
+**Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/JZVHZEsLrfEEM3VI)  
 
    
   *"Solved the whole damn game like it's just another Tuesday"*       

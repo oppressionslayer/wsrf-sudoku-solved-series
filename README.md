@@ -44,6 +44,15 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 https://larsdoku.netlify.app/
 
+  ## Documentation                                                                                                                                                                                           
+                                                                                                                                                                                                             
+  - **larsdoku** — [Full Docs](https://larsdoku-docs.netlify.app/) · [Research Tool](https://larsdoku-docs.netlify.app/research/) · [CLI](https://larsdoku-docs.netlify.app/cli/) ·                          
+  [API](https://larsdoku-docs.netlify.app/api/)                                                                                                                                                              
+  - **larsdoku-zs** — [Full Docs](https://larsdoku-zs-docs.netlify.app/) · [WTH: Research Tools](https://larsdoku-zs-docs.netlify.app/research-tools/) · [CLI](https://larsdoku-zs-docs.netlify.app/cli/) ·  
+  [API](https://larsdoku-zs-docs.netlify.app/api/)   
+
+  
+
 ## The Techniques
 
 ### FPC Placement (Finned Pointing Chain)
@@ -84,7 +93,7 @@ https://larsdoku.netlify.app/
 
 | Stat | Value |
 |------|-------|
-| Share of solving steps | **17.6%** (9,851 firings — #1 technique in the solver) |
+| Share of solvin g steps | **17.6%** (9,851 firings — #1 technique in the solver) |
 | Combined with FPC Placement | **32.6%** of all steps |
 | Techniques made obsolete | **13+** (see below) |
 

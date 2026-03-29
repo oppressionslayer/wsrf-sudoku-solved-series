@@ -48,7 +48,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 https://larsdoku.netlify.app/
 
   ## Documentation                                                                                                                                                                                           
-                                                                                                                                                                                                             
+ **Zone Structure Paper:** [Zone Structure of Sudoku: Cross-Box Invariants, the 135 Rule, and Structure-Preserving Puzzle Generation (PDF)](zone_structure_paper_ARXIV.pdf)                                                                                                                                                                                                              
   - **larsdoku** — [Full Docs](https://larsdoku-docs.netlify.app/) · [Research Tool](https://larsdoku-docs.netlify.app/research/) · [CLI](https://larsdoku-docs.netlify.app/cli/) ·                          
   [API](https://larsdoku-docs.netlify.app/api/)                                                                                                                                                              
   - **larsdoku-zs** — [Full Docs](https://larsdoku-zs-docs.netlify.app/) · [WTH: Research Tools](https://larsdoku-zs-docs.netlify.app/research-tools/) · [CLI](https://larsdoku-zs-docs.netlify.app/cli/) ·  

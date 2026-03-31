@@ -8,7 +8,7 @@
 
  ## The Anthem                                                                                                                                                     
                                                             
-  [Just Another Tuesday — Larsdoku Style (Country Epic Anthem)](https://suno.com/s/ABPiCLAgaZLNmGko)      
+  [Just Another Tuesday — Larsdoku Style (Country Epic Anthem)](https://suno.com/s/5Vp81L1tj0DNnVKz)      
 
 **Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/ABPiCLAgaZLNmGko)  
 

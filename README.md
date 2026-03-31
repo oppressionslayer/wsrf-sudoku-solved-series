@@ -8,7 +8,7 @@
 
  ## The Anthem                                                                                                                                                     
                                                             
-  [Just Another Tuesday — Larsdoku Style (Country Epic Anthem)](https://suno.com/s/cfKdA5mrpkSGt9oL)      
+  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/cfKdA5mrpkSGt9oL)      
 
 **Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/ABPiCLAgaZLNmGko)  
 

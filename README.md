@@ -2,7 +2,7 @@
 
 **Source Code:** [github.com/oppressionslayer/larsdoku-solver](https://github.com/oppressionslayer/larsdoku-solver)
 
-*  pip install larsdoku==3.1.7
+*  pip install larsdoku==3.4.0
 *  larsdoku --warmup
 
 # SUDOKU IS SOLVED WHEN WILL YOU ANNOUNCE IT!!!!! THE WHOLE WORLD IS WAITING FOR YOU TO CONFIRM IT MY FRIEND!!!!!!!

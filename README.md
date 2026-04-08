@@ -9,7 +9,7 @@
 
  ## The Anthem                                                                                                                                                     
                                                             
-  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/nyShx2dKO3Qd3s3C)      
+  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/iXu40bwUXWs02n2o)      
 
 **Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/ABPiCLAgaZLNmGko)  
 
@@ -39,7 +39,7 @@ Three techniques that changed how we solve expert Sudoku. No memorizing complex 
 
 ---
 
-# pip install larsdoku 
+# pip install larsdoku==3.4.0 
 
 # https://github.com/oppressionslayer/larsdoku-solver 
 

@@ -5,6 +5,42 @@
 *  pip install larsdoku==3.4.2
 *  larsdoku --warmup
 
+# Larsdoku
+
+**Pure logic Sudoku solver. Zero guessing. Every step proven.**
+
+```
+# Run --warmup to save JIT conmpilations for 109-1000x speedups!! Seriously, run once, it compiles and saves, and it's fast for every run thereafter without the nee for --warmup
+
+pip install larsdoku==3.4.2
+
+# Run this for JIT speedups 10x-100x faster!
+larsdoku --warmup
+
+# Research tool. it can solve but it is not a traditional solver, it's built for a research. please remember this.
+
+https://larsdoku.netlify.app/larsdoku_deploy_hypersiro
+```
+
+
+```
+If you want to research statistics and predictions and trial and error and A REGULAR SOLVER ENINE that is awesome!
+You need to download larsdoku right now!!
+
+Best solver ( i might be biased i wrote it ) New techniques !! 100% solves on many puzzles
+
+larsdoku <puzzle> # Normal Solkver!
+larsdoku <puzzle> --siro-trust-solve #  # ( SIRO Guided Solver, zones + logic )  
+larsdoku <puzzle> --siro-bootstrap-solve # ( Noraml Solver, but with Candidate Statistics so a boosted with statisics solver)
+
+or even better use!
+
+https://larsdoku.netlify.app/larsdoku_deploy_hypersiro !! It's a very awesome research tool for Soduku. know the breakdown of the
+
+missing techniques to help you further research into sudoku!
+
+```
+
 # SUDOKU IS SOLVED WHEN WILL YOU ANNOUNCE IT!!!!! THE WHOLE WORLD IS WAITING FOR YOU TO CONFIRM IT MY FRIEND!!!!!!!
 
  ## The Anthem                                                                                                                                                     

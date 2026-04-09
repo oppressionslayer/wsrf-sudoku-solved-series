@@ -17,10 +17,11 @@
 1....6.8..64..........4...7....9.6...7.4..5..5...7.1...5....32.3....8...4........
   *"Solved the whole damn game like it's just another Tuesday"*       
   
-# Solving "Unsolvable" Puzzles — mith T&E(3) Collection
+# Solving "Unsolvable" Puzzles — mith T&E(3) Collection 
 
 ## Puzzle 1: mith seed (31 clues)
 ```
+*Sir Lars — Easter Sunday, 2026*
 # Trust me you want larsdoku. Best Sudoku program on the market!
 
 ...45...9.....92.6..97.....2.1..786..78...9.296...8.17.928..6.17.6......81.......

@@ -73,7 +73,28 @@ SIRO Bootstrap Verify: **100% (6/6)**
 ```
 $ larsdoku .2....7....71.9...86...7..........93.3.9.417.......4.2....92.41..234.9.7...7.132.
 Status: STALLED (needs LS technique — in development)
-```
+```larsdoku .2....7....71.9...86...7..........93.3.9.417.......4.2....92.41..234.9.7...7.132. --siro-bootstrap-solve
+
+Status: SOLVED
+Steps:  45
+Time:   7070.8ms
+Verify: All techniques are Sudoku Expert Approved ✓
+
+  Board validated: every row, column, and box contains
+  digits 1-9 exactly once per international Sudoku rules.
+  No backtracking or trial-and-error was used at any point.
+  Every placement was derived by deterministic logic alone.
+
+Techniques:
+  crossHatch              24 ( 53.3%)  L1  █████████████████
+  lastRemaining           10 ( 22.2%)  L1  ███████
+  nakedSingle              7 ( 15.6%)  L1  █████
+  fullHouse                4 (  8.9%)  L1  ██
+  SIRO Bootstrap Solve: 6/6 verified zone predictions correct.
+  6 SIRO placements added as clues → standard solver finished.
+  Boosted puzzle: 020000700007109000860007000241000093030904170798000402000092041002340907000701320
+  No trust_solution. No oracle. Pure zones + pure logic.
+
 
 SIRO Bootstrap Verify: **100% (6/6)**
 ```

@@ -7,7 +7,7 @@
 
 # Larsdoku
 
-**Pure logic Sudoku solver. Zero guessing. Every step proven.**
+**Pure logic Sudoku solver. Zero guessing. Every step proven.**puzzles
 
 ```
 # Run --warmup to save JIT conmpilations for 109-1000x speedups!! Seriously, run once, it compiles and saves, and it's fast for every run thereafter without the nee for --warmup
@@ -17,7 +17,7 @@ pip install larsdoku==3.4.2
 # Run this for JIT speedups 10x-100x faster!
 larsdoku --warmup
 
-# Research tool. it can solve but it is not a traditional solver, it's built for a research. please remember this.
+# The Website below is a  Research tool. it can solve but it is not a traditional solver, it's built for a research. please remember this.
 
 https://larsdoku.netlify.app/larsdoku_deploy_hypersiro
 ```

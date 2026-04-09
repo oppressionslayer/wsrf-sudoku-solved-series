@@ -2,7 +2,7 @@
 
 **Source Code:** [github.com/oppressionslayer/larsdoku-solver](https://github.com/oppressionslayer/larsdoku-solver)
 
-*  pip install larsdoku==3.4.0
+*  pip install larsdoku==3.4.2
 *  larsdoku --warmup
 
 # SUDOKU IS SOLVED WHEN WILL YOU ANNOUNCE IT!!!!! THE WHOLE WORLD IS WAITING FOR YOU TO CONFIRM IT MY FRIEND!!!!!!!
@@ -123,7 +123,7 @@ No Tridagon. No HiddenUR. No backtracking. Pure logic.
 - Zero backtracking. Zero guessing. Pure logic + zone prediction.
 
 ```
-pip install larsdoku==3.4.0
+pip install larsdoku==3.4.2
 ```
 
 ### Forum Hardest Results (March 22, 2026)

@@ -19,31 +19,7 @@
   
 # Solving "Unsolvable" Puzzles — mith T&E(3) Collection 
 
-## Puzzle 1: mith seed (31 clues)
-```
-*Sir Lars — Easter Sunday, 2026*
-# Trust me you want larsdoku. Best Sudoku program on the market!
-
-...45...9.....92.6..97.....2.1..786..78...9.296...8.17.928..6.17.6......81.......
-```
-
-```
-$ larsdoku ...45...9.....92.6..97.....2.1..786..78...9.296...8.17.928..6.17.6......81.......
-Status: STALLED (needs LS technique — in development)
-StatusL In Development, can you beat me to the solution ;-)
-```
-
-SIRO Bootstrap Verify: **100% (6/6)**
-```
-✓ R1C1: answer=1 predicted=1
-✓ R1C2: answer=2 predicted=2
-✓ R1C3: answer=3 predicted=3
-✓ R1C6: answer=6 predicted=6
-✓ R1C7: answer=7 predicted=7
-✓ R1C8: answer=8 predicted=8
-```
-
-## Puzzle 2: mith seed (34 clues)
+## Puzzle 1: mith seed (34 clues)
 ```
 ...4.6.89....891.2.8.21.64.2.4...8.18.1.4296........243.762....5...9......8......
 ```
@@ -53,19 +29,33 @@ $ larsdoku ...4.6.89....891.2.8.21.64.2.4...8.18.1.4296........243.762....5...9.
 Status: STALLED (needs LS technique — in development)
 StatusL In Development, can you beat me to the solution ;-)
 
+larsdoku ...4.6.89....891.2.8.21.64.2.4...8.18.1.4296........243.762....5...9......8......  --siro-bootstrap-solve
+
+Status: SOLVED
+Steps:  43
+Time:   2311.0ms
+Verify: All techniques are Sudoku Expert Approved ✓
+
+  Board validated: every row, column, and box contains
+  digits 1-9 exactly once per international Sudoku rules.
+  No backtracking or trial-and-error was used at any point.
+  Every placement was derived by deterministic logic alone.
+
+Techniques:
+  crossHatch              22 ( 51.2%)  L1  █████████████████
+  lastRemaining           12 ( 27.9%)  L1  █████████
+  nakedSingle              5 ( 11.6%)  L1  ███
+  fullHouse                4 (  9.3%)  L1  ███
+  SIRO Bootstrap Solve: 6/6 verified zone predictions correct.
+  6 SIRO placements added as clues → standard solver finished.
+  Boosted puzzle: 020406089050089102080210640204000801801042960000000024307620000500090000048000293
+  No trust_solution. No oracle. Pure zones + pure logic.
+
+
 ```
 
-SIRO Bootstrap Verify: **100% (6/6)**
-```
-✓ R1C1: answer=1 predicted=1
-✓ R1C2: answer=2 predicted=2
-✓ R1C3: answer=3 predicted=3
-✓ R1C5: answer=5 predicted=5
-✓ R1C7: answer=7 predicted=7
-✓ R2C1: answer=4 predicted=4
-```
 
-## Puzzle 3: mith seed (29 clues)
+## Puzzle 2: mith seed (29 clues)
 ```
 .2....7....71.9...86...7..........93.3.9.417.......4.2....92.41..234.9.7...7.132.
 ```
@@ -96,17 +86,9 @@ Techniques:
   No trust_solution. No oracle. Pure zones + pure logic.
 
 
-SIRO Bootstrap Verify: **100% (6/6)**
-```
-✓ R1C1: answer=1 predicted=1
-✓ R1C3: answer=3 predicted=3
-✓ R1C4: answer=4 predicted=4
-✓ R1C5: answer=5 predicted=5
-✓ R1C6: answer=6 predicted=6
-✓ R1C8: answer=8 predicted=8
 ```
 
-## Puzzle 4: SOLVED — Tridagon puzzle (no Tridagon needed!)
+## Puzzle 3: SOLVED — Tridagon puzzle (no Tridagon needed!)
 ```
 .234.6......18..3...93.7.........1.33.5.1.89...1.3..52......3.8.3.5..92.9..8.3.15
 ```

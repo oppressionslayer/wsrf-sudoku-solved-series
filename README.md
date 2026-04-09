@@ -30,6 +30,7 @@
 ```
 $ larsdoku ...45...9.....92.6..97.....2.1..786..78...9.296...8.17.928..6.17.6......81.......
 Status: STALLED (needs LS technique — in development)
+StatusL In Development, can you beat me to the solution ;-)
 ```
 
 SIRO Bootstrap Verify: **100% (6/6)**
@@ -50,6 +51,8 @@ SIRO Bootstrap Verify: **100% (6/6)**
 ```
 $ larsdoku ...4.6.89....891.2.8.21.64.2.4...8.18.1.4296........243.762....5...9......8......
 Status: STALLED (needs LS technique — in development)
+StatusL In Development, can you beat me to the solution ;-)
+
 ```
 
 SIRO Bootstrap Verify: **100% (6/6)**

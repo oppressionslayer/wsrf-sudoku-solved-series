@@ -5,7 +5,7 @@
 
 https://larsdoku.netlify.app/
 
-https://larsdoku.netlify.app/larsdoku_deploy_hypersiro
+https://larsdoku.netlify.app/larsdoku_deploy_hypersiro/
 
 ```
 

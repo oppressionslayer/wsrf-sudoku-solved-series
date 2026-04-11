@@ -598,11 +598,435 @@ Techniques:
 
 ```
 
-## Puzzle 3: SOLVED — Tridagon puzzle (no Tridagon needed!)
+## Puzzle 3: SOLVED —
+# 99.91% on the 48k hardest !
+
+https://larsdoku.netlify.app/
+
+https://larsdoku.netlify.app/larsdoku_deploy_hypersiro/
+
+```
+
+A research guide for joining the party.
+
+larsdoku 3.4.8 is a pure-logic sudoku solver with 44 pattern detectors. It is
+also a research instrument: when you give it a hard puzzle and it stalls, the
+stall is a **fingerprint of a technique nobody has named yet**. This guide
+shows you how to install it, run it in research mode, and use any AI assistant
+(Claude, ChatGPT, etc.) to help cluster the stall fingerprints into a real,
+publishable new technique.
+
+The methodology described here is the same one used to discover six WSRF
+techniques already in the solver: **FPC, FPCE, D2B, FPF, DeepResonance, and
+LZWing**.
+
+---
+
+## Why this is interesting
+
+Every named sudoku technique — from naked single up through Junior Exocet —
+was once an unnamed pattern someone noticed. The pattern came first, the
+name and the proof came later.
+
+larsdoku gives you a way to find those patterns at scale:
+
+1. Run thousands of hard puzzles through the standard 44-detector chain.
+2. When the chain stalls, use **WSRF zone math** (a rank-1 cell oracle from
+   the Self-Informing Rank Oracle / SIRO system) to nudge the puzzle past
+   exactly one cell.
+3. Record where the nudge happened — the cell, the zone slot, and the board
+   state at that moment.
+4. Cluster the recordings across the corpus. Cells that share a structural
+   shape are candidates for the same undiscovered technique.
+
+Step 2 sounds magical but it is not — it is a deterministic prediction
+based on row/column/box rank statistics, validated against the backtracker
+solution at every step (so you know the nudge is correct without trusting
+it blindly). The point of the nudge is **not to solve the puzzle**, it is
+to mark the location of the gap in a way that lets you compare gaps across
+many puzzles.
+
+---
+
+## Install
+
+```bash
+pip install larsdoku==3.4.8
+
+# Don't forget this step after every upgrade, because it increses speed by 1000%!!!
+
+larsdoku --warmup
+
+```
+
+Or, for the bleeding-edge build:
+
+```bash
+git clone <repo>
+cd larsdoku
+pip install -e .
+```
+
+Verify:
+
+```bash
+larsdoku --version
+# larsdoku 3.4.8
+```
+
+---
+
+## Solve a puzzle the normal way
+
+```bash
+larsdoku '1.3..67.9.57..9.3669...351..6584..............71.......1.9...75......3......6.9.1' --level 7
+```
+
+You will see the technique cascade. `--level 7` enables every detector
+(L1-L7); the default `--level 99` is the same as 7 plus oracle-only
+techniques.
+
+---
+
+## Solve a puzzle in research mode
+
+This is the new flag in 3.4.8:
+
+```bash
+larsdoku '12..56.89.5...92.6......15.2.1...96..65....2889....5.1....7..........81..1283....' --with-zoneded --level 7 --verbose
+```
+
+Output:
+
+```
+[zd-loop] round 1: remaining=50
+[zd-loop]   wrong placement R2C3=8 (truth=7) — abort technique cascade
+[zd-loop]   placed 1, result.steps=46, result.success=False, remaining_after=49
+  ★ ZONE DEDUCTION #1 (round 1): R1C7=7  zone=TL  [CROSS-DIGIT]
+[zd-loop] round 2: remaining=48
+[zd-loop]   placed 48, result.steps=48, result.success=True, remaining_after=0
+
+Status: SOLVED
+Technique steps: 49
+Zone deductions: 1
+|Zones: TL|
+...
+Zone Deduction Points (technique gaps — research signal):
+  #1: R1C7=7  zone=TL  [cross-digit]  (stall round 1) — missing technique here
+```
+
+The important line is the last one. It tells you:
+
+- **Cell:** R1C7 — row 1, column 7
+- **Zone:** TL — this cell's slot inside its 3x3 box (top-left)
+- **Subtype:** cross-digit — which family of zone oracle fired
+- **Stall round:** 1 — how many technique rounds had completed before
+  the stall
+
+The `|Zones: TL|` line is a grep-friendly array of every zone slot used in
+this puzzle, in order. If a puzzle needed two deductions you would see
+something like `|Zones: TL,MC|`.
+
+---
+
+## What "zone" means here
+
+Each 3x3 box has 9 cells. The WSRF system labels each cell by its position
+**inside its own box**, giving 9 zone names:
+
+```
+TL TC TR     ← Top-Left, Top-Center, Top-Right of the box
+ML MC MR     ← Middle-Left, Middle-Center, Middle-Right
+BL BC BR     ← Bottom-Left, Bottom-Center, Bottom-Right
+```
+
+There are nine cells with each label across the whole grid (one per box).
+Treating them as a single group is the WSRF idea: the centers (MC) form one
+group, the top-rights (TR) form another, and so on. Many discovered
+techniques act on relationships within or between these groups.
+
+When the research output says `zone=TR`, it means the cell where the
+deduction landed is the top-right cell of its 3x3 box. Across a corpus you
+will find that some zones appear far more often than others — that
+asymmetry is a real research signal, not noise.
+
+---
+
+## Run a whole corpus
+
+For batch research, use the supplied script (adjust the input/output
+paths at the top of the file to match your local puzzle corpus):
+
+```bash
+python mith_158k_solve.py
+```
+
+It writes one line per puzzle to `mith_larsdoku_new_solve.txt`:
+
+```
+puzzle_number|puzzle|status|kind|empty_remaining|zones|technique_counts
+```
+
+Where `kind` is one of:
+
+- `-`       — solved by techniques alone (no zone help needed)
+- `Zoned`   — solved but needed at least one zone deduction
+- `Stalled` — stuck even with zone deductions
+- `Failed`  — exception during solve
+
+And `zones` is a comma-separated list like `TL,MC` of every zone slot used,
+or `-` if none.
+
+Grep recipes:
+
+```bash
+# All puzzles that needed zone help (the research material)
+grep "|true|Zoned|" mith_larsdoku_new_solve.txt
+
+# Puzzles that stalled even with zone help (rarer, harder)
+grep "|Stalled|" mith_larsdoku_new_solve.txt
+
+# Puzzles that needed a TR-zone deduction
+grep "|Zoned|.*|TR" mith_larsdoku_new_solve.txt | head
+
+# Puzzles needing exactly two deductions
+grep "|Zoned|.*|.*,.*|" mith_larsdoku_new_solve.txt
+```
+
+---
+
+## Reading the corpus stats
+
+After running a batch, you can count how often each zone appears:
+
+```bash
+awk -F'|' '$6 != "-" {
+    n = split($6, zs, ",")
+    for (i=1; i<=n; i++) cnt[zs[i]]++
+}
+END {
+    for (z in cnt) printf "  %-3s  %5d\n", z, cnt[z]
+}' mith_larsdoku_new_solve.txt | sort -k2 -rn
+```
+
+A non-uniform distribution is a finding. From a recent 559-puzzle slice of
+the mith corpus: Tridagon puzzle (no Tridagon needed!)
 ```
 .234.6......18..3...93.7.........1.33.5.1.89...1.3..52......3.8.3.5..92.9..8.3.15
 ```
 
+# 99.91% on the 48k hardest !
+
+https://larsdoku.netlify.app/
+
+https://larsdoku.netlify.app/larsdoku_deploy_hypersiro/
+
+```
+
+A research guide for joining the party.
+
+larsdoku 3.4.8 is a pure-logic sudoku solver with 44 pattern detectors. It is
+also a research instrument: when you give it a hard puzzle and it stalls, the
+stall is a **fingerprint of a technique nobody has named yet**. This guide
+shows you how to install it, run it in research mode, and use any AI assistant
+(Claude, ChatGPT, etc.) to help cluster the stall fingerprints into a real,
+publishable new technique.
+
+The methodology described here is the same one used to discover six WSRF
+techniques already in the solver: **FPC, FPCE, D2B, FPF, DeepResonance, and
+LZWing**.
+
+---
+
+## Why this is interesting
+
+Every named sudoku technique — from naked single up through Junior Exocet —
+was once an unnamed pattern someone noticed. The pattern came first, the
+name and the proof came later.
+
+larsdoku gives you a way to find those patterns at scale:
+
+1. Run thousands of hard puzzles through the standard 44-detector chain.
+2. When the chain stalls, use **WSRF zone math** (a rank-1 cell oracle from
+   the Self-Informing Rank Oracle / SIRO system) to nudge the puzzle past
+   exactly one cell.
+3. Record where the nudge happened — the cell, the zone slot, and the board
+   state at that moment.
+4. Cluster the recordings across the corpus. Cells that share a structural
+   shape are candidates for the same undiscovered technique.
+
+Step 2 sounds magical but it is not — it is a deterministic prediction
+based on row/column/box rank statistics, validated against the backtracker
+solution at every step (so you know the nudge is correct without trusting
+it blindly). The point of the nudge is **not to solve the puzzle**, it is
+to mark the location of the gap in a way that lets you compare gaps across
+many puzzles.
+
+---
+
+## Install
+
+```bash
+pip install larsdoku==3.4.8
+
+# Don't forget this step after every upgrade, because it increses speed by 1000%!!!
+
+larsdoku --warmup
+
+```
+
+Or, for the bleeding-edge build:
+
+```bash
+git clone <repo>
+cd larsdoku
+pip install -e .
+```
+
+Verify:
+
+```bash
+larsdoku --version
+# larsdoku 3.4.8
+```
+
+---
+
+## Solve a puzzle the normal way
+
+```bash
+larsdoku '1.3..67.9.57..9.3669...351..6584..............71.......1.9...75......3......6.9.1' --level 7
+```
+
+You will see the technique cascade. `--level 7` enables every detector
+(L1-L7); the default `--level 99` is the same as 7 plus oracle-only
+techniques.
+
+---
+
+## Solve a puzzle in research mode
+
+This is the new flag in 3.4.8:
+
+```bash
+larsdoku '12..56.89.5...92.6......15.2.1...96..65....2889....5.1....7..........81..1283....' --with-zoneded --level 7 --verbose
+```
+
+Output:
+
+```
+[zd-loop] round 1: remaining=50
+[zd-loop]   wrong placement R2C3=8 (truth=7) — abort technique cascade
+[zd-loop]   placed 1, result.steps=46, result.success=False, remaining_after=49
+  ★ ZONE DEDUCTION #1 (round 1): R1C7=7  zone=TL  [CROSS-DIGIT]
+[zd-loop] round 2: remaining=48
+[zd-loop]   placed 48, result.steps=48, result.success=True, remaining_after=0
+
+Status: SOLVED
+Technique steps: 49
+Zone deductions: 1
+|Zones: TL|
+...
+Zone Deduction Points (technique gaps — research signal):
+  #1: R1C7=7  zone=TL  [cross-digit]  (stall round 1) — missing technique here
+```
+
+The important line is the last one. It tells you:
+
+- **Cell:** R1C7 — row 1, column 7
+- **Zone:** TL — this cell's slot inside its 3x3 box (top-left)
+- **Subtype:** cross-digit — which family of zone oracle fired
+- **Stall round:** 1 — how many technique rounds had completed before
+  the stall
+
+The `|Zones: TL|` line is a grep-friendly array of every zone slot used in
+this puzzle, in order. If a puzzle needed two deductions you would see
+something like `|Zones: TL,MC|`.
+
+---
+
+## What "zone" means here
+
+Each 3x3 box has 9 cells. The WSRF system labels each cell by its position
+**inside its own box**, giving 9 zone names:
+
+```
+TL TC TR     ← Top-Left, Top-Center, Top-Right of the box
+ML MC MR     ← Middle-Left, Middle-Center, Middle-Right
+BL BC BR     ← Bottom-Left, Bottom-Center, Bottom-Right
+```
+
+There are nine cells with each label across the whole grid (one per box).
+Treating them as a single group is the WSRF idea: the centers (MC) form one
+group, the top-rights (TR) form another, and so on. Many discovered
+techniques act on relationships within or between these groups.
+
+When the research output says `zone=TR`, it means the cell where the
+deduction landed is the top-right cell of its 3x3 box. Across a corpus you
+will find that some zones appear far more often than others — that
+asymmetry is a real research signal, not noise.
+
+---
+
+## Run a whole corpus
+
+For batch research, use the supplied script (adjust the input/output
+paths at the top of the file to match your local puzzle corpus):
+
+```bash
+python mith_158k_solve.py
+```
+
+It writes one line per puzzle to `mith_larsdoku_new_solve.txt`:
+
+```
+puzzle_number|puzzle|status|kind|empty_remaining|zones|technique_counts
+```
+
+Where `kind` is one of:
+
+- `-`       — solved by techniques alone (no zone help needed)
+- `Zoned`   — solved but needed at least one zone deduction
+- `Stalled` — stuck even with zone deductions
+- `Failed`  — exception during solve
+
+And `zones` is a comma-separated list like `TL,MC` of every zone slot used,
+or `-` if none.
+
+Grep recipes:
+
+```bash
+# All puzzles that needed zone help (the research material)
+grep "|true|Zoned|" mith_larsdoku_new_solve.txt
+
+# Puzzles that stalled even with zone help (rarer, harder)
+grep "|Stalled|" mith_larsdoku_new_solve.txt
+
+# Puzzles that needed a TR-zone deduction
+grep "|Zoned|.*|TR" mith_larsdoku_new_solve.txt | head
+
+# Puzzles needing exactly two deductions
+grep "|Zoned|.*|.*,.*|" mith_larsdoku_new_solve.txt
+```
+
+---
+
+## Reading the corpus stats
+
+After running a batch, you can count how often each zone appears:
+
+```bash
+awk -F'|' '$6 != "-" {
+    n = split($6, zs, ",")
+    for (i=1; i<=n; i++) cnt[zs[i]]++
+}
+END {
+    for (z in cnt) printf "  %-3s  %5d\n", z, cnt[z]
+}' mith_larsdoku_new_solve.txt | sort -k2 -rn
+```
+
+A non-uniform distribution is a finding. From a recent 559-puzzle slice of
+the mith corpus:
 ```
 $ larsdoku .234.6......18..3...93.7.........1.33.5.1.89...1.3..52......3.8.3.5..92.9..8.3.15
 Status: SOLVED
@@ -623,7 +1047,7 @@ Techniques:
   FPCE                     1 (  1.6%)  L5 ★
 ```
 
-No Tridagon. No HiddenUR. No backtracking. Pure logic.
+Fewer techniques. No backtracking. Pure logic.
 
 ---
 

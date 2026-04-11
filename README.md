@@ -54,6 +54,11 @@ many puzzles.
 
 ```bash
 pip install larsdoku==3.4.8
+
+# Don't forget this step after every upgrade, because it increses speed by 1000%!!!
+
+larsdoku --warmup
+
 ```
 
 Or, for the bleeding-edge build:

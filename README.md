@@ -7,6 +7,8 @@ https://larsdoku.netlify.app/
 
 https://larsdoku.netlify.app/larsdoku_deploy_hypersiro/
 
+# Example solve file: https://github.com/oppressionslayer/wsrf-sudoku-solved-series/blob/main/bench_h11_last_2500_3_4_7.txt
+
 ```
 
 A research guide for joining the party.

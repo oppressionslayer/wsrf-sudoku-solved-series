@@ -810,7 +810,7 @@ END {
 ```
 
 A non-uniform distribution is a finding. From a recent 559-puzzle slice of
-the mith corpus: Tridagon puzzle (no Tridagon needed!)
+the mith corpus: 
 ```
 .234.6......18..3...93.7.........1.33.5.1.89...1.3..52......3.8.3.5..92.9..8.3.15
 ```

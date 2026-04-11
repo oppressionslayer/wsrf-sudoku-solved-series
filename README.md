@@ -87,7 +87,7 @@ techniques.
 
 ## Solve a puzzle in research mode
 
-This is the new flag in 3.4.7:
+This is the new flag in 3.4.8:
 
 ```bash
 larsdoku '12..56.89.5...92.6......15.2.1...96..65....2889....5.1....7..........81..1283....' --with-zoneded --level 7 --verbose
@@ -455,7 +455,7 @@ on-ramp for the rest of the codebase.
 
 If you want to dive in right now:
 
-1. Install larsdoku 3.4.7
+1. Install larsdoku 3.4.8
 2. Run `larsdoku '<any hard puzzle>' --with-zoneded --level 7 --verbose`
 3. When you see a `Zone Deduction Points` line, that is a missing
    technique. Pick a zone slot you find interesting, gather 20-50

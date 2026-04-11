@@ -52,7 +52,7 @@ many puzzles.
 ## Install
 
 ```bash
-pip install larsdoku
+pip install larsdoku==3.4.8
 ```
 
 Or, for the bleeding-edge build:

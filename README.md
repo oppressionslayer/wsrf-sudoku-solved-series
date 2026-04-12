@@ -1,4 +1,4 @@
-# Hunting New Sudoku Techniques with larsdoku + AI
+# Hunting New Sudoku Techniques with larsdoku + AI and/or with Your own Brain!
 
 ```
 # 99.91% on the 48k hardest !

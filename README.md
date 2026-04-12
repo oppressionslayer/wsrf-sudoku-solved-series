@@ -1,4 +1,4 @@
-# Hunting New Sudoku Techniques with larsdoku + AI and/or with Your own Brain!
+[](url)# Hunting New Sudoku Techniques with larsdoku + AI and/or with Your own Brain!
 
 ```
 # 99.846% on the 48k hardest !
@@ -535,9 +535,9 @@ missing techniques to help you further research into sudoku!
 
  ## The Anthem                                                                                                                                                     
                                                             
-  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/iXu40bwUXWs02n2o)      
+  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/CvcHcULD9VWT5Wr7)      
 
-**Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/ABPiCLAgaZLNmGko)  
+**Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/CvcHcULD9VWT5Wr7)  
 
    
 1....6.8..64..........4...7....9.6...7.4..5..5...7.1...5....32.3....8...4........

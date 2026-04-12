@@ -19,6 +19,7 @@ https://larsdoku.netlify.app/larsdoku_deploy_hypersiro/
 Results in: 
 bench_h11_full_48765_3_4_8.zip
 bench_h11_full_48765_3_4_8.txt
+bench_h11_full_48765_stalls_3_4_8.txt # 75 stalls in the 48k.
 
 # Use Larsdoku to find the last remaining technique or techniques!
 

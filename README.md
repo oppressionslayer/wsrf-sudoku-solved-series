@@ -535,7 +535,7 @@ missing techniques to help you further research into sudoku!
 
  ## The Anthem                                                                                                                                                     
                                                             
-  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/CvcHcULD9VWT5Wr7)      
+  [Base Unique Puzzle, no backtracker flaws down to base unique Opera fun!! ](https://suno.com/s/usI0HWjGrshlMRmd)   
 
 **Sittin' on the Throne of Euler:** [Listen Now! They said NP Complete, i said check out my zones brother Euler! ](https://suno.com/s/CvcHcULD9VWT5Wr7)  
 

@@ -6,9 +6,6 @@
 # 99.846% on the 48k hardest (we just achieved 100% we are redesigining solves to not contradict each other now as seen
 in  mith  puzzles -- update to come soon ! )
 
-# CREATED WITH AI ASSISTANCE AI CAN MAKE MISTAKES!
-
-
 # MAJOR UPDATE LARSDOKU CAN FORGE PUZZZLES AND UNSOLVABLES VIA TECHNIQUE SIGNATURES AND WE ARE
 # IN THE PROGRESS OF MAKING LARSDOKU VIA TECHNIQUE ZONE SIGNATURES TO BETTER SUIT ITS USE AS A
 # REESEARCH APPLICATIOM FOR FINDING NEW TECHINQUES VIA TECHNIQUES SIGNATURES. UPDATE ARRIVING
@@ -1082,6 +1079,9 @@ Techniques:
   SimpleColoring           2 (  3.3%)  L4
   ALS_XYWing               1 (  1.6%)  L5
   FPCE                     1 (  1.6%)  L5 ★
+
+# CREATED WITH AI ASSISTANCE AI CAN MAKE MISTAKES!
+
 ```
 
 Fewer techniques. No backtracking. Pure logic.

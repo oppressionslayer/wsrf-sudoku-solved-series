@@ -34,6 +34,27 @@ https://larsdoku.netlify.app/larsdoku_deploy_hypersiro/
   Stalled:      75  (0.154%)                                                                                                                                                                               
   Failed:        0  (0.000%)
 
+#  TO FIND techniques like your puzzle for research!
+
+  Technique Signature Lookup
+  -------------------------------------------------------
+  Puzzle techniques (catalog-era solve): ALS_XYWing+ALS_XZ+D2B+FPC+SimpleColoring+Swordfish+XWing
+  Signature (abbr): ALS+ALSXY+D2B+FPC+SC+SF+XW
+  Note: solved with post-catalog techniques excluded so signature matches catalog vintage (catalog built before LZWing, Tridagon, etc.).
+
+  Catalog total: 10,698 unique signatures
+  >>> EXACT signature match — 69 seeds in catalog under this signature.
+  Superset signatures (catalog sigs containing all puzzle techs): 175
+  Total seeds across superset signatures: 1,570
+
+  To retrieve seeds matching this signature for further research:
+
+    larsdoku --tech-sigquery "ALS_XYWing,ALS_XZ,D2B,FPC,SimpleColoring,Swordfish,XWing" --query-count 10
+
+  Increase --query-count to pull more; techniques are dropped if not
+  tracked in the catalog (e.g. LZWing) so the query uses only catalog techs.
+
+
 Results in: 
 bench_h11_full_48765_3_4_8.zip
 bench_h11_full_48765_3_4_8.txt
